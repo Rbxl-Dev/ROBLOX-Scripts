@@ -486,7 +486,7 @@ ServerTab:CreateSection("Serverside Decals")
 ServerTab:CreateButton({
 	Name = "Change Map Decals",
 	Callback = function()
-		for i,v in pairs(GetDecalsFromFlag(workspace)) do
+		for i,v in pairs(workspace:GetDescendants()) do
 			ChangeDecal(v, ServerDecalId)
 		end
 	end
@@ -525,7 +525,7 @@ ServerTab:CreateToggle({
 		DecalSpamming = value;
 		spawn(function()
 			while DecalSpamming do
-				for i, decal in ipairs(GetDecalsFromFlag(Workspace)) do
+				for i, decal in ipairs(Workspace:GetDescendants()) do
 					ChangeDecal(decal, ServerDecalId)
 					task.wait()
 				end
